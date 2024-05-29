@@ -24,9 +24,9 @@ class YahtzeeGame:
             if turn < 2:
                 if not self.ask_to_roll_again():
                     break
-            else:
-                if not self.ask_to_play_again():
-                    break
+        else:
+            if not self.ask_to_play_again():
+                self.keep_playing = False
 
     def roll_dice(self):
         # Kastar alla tärningar.
@@ -56,8 +56,6 @@ class YahtzeeGame:
     def ask_to_play_again(self):
         # Frågar spelaren om de vill spela en ny omgång.
         response = input("Game over! Want to play again? (y for yes, anything else for no): ").lower()
-        if response != 'y':
-            self.keep_playing = False
         return response == 'y'
 
 def main():
